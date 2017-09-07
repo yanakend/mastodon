@@ -33,10 +33,6 @@
             - else
               = link_to t('auth.login'), new_user_session_path, class: 'webapp-btn'
           %li= link_to t('about.about_this'), about_more_path
-          %li
-            = link_to 'https://joinmastodon.org/' do
-              = "#{t('about.other_instances')}"
-              %i.fa.fa-external-link{ style: 'padding-left: 5px;' }
 
       .container.hero
         .floats
@@ -46,7 +42,7 @@
         .heading
           %h1
             = @instance_presenter.site_title
-            %small= t 'about.hosted_on', domain: site_hostname
+            %small= t('about.hosted_on')
         - if @instance_presenter.open_registrations
           = render 'registration'
         - else
@@ -69,12 +65,7 @@
         #mastodon-timeline{ data: { props: Oj.dump(default_props) } }
 
       .about-mastodon
-        %h3= t 'about.what_is_mastodon'
-        %p= t 'about.about_mastodon_html'
-        %a.button.button-secondary{ href: 'https://joinmastodon.org/' }= t 'about.learn_more'
         = render 'features'
   .footer-links
     .container
       %p
-        = link_to t('about.source_code'), @instance_presenter.source_url
-        = " (#{@instance_presenter.version_number})"

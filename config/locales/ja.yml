@@ -7,12 +7,17 @@ ja:
     contact: 連絡先
     contact_missing: 未設定
     contact_unavailable: N/A
-    description_headline: "%{domain} とは？"
+    description_headline: "ハストドンとは？"
     domain_count_after: 個のインスタンス
     domain_count_before: 接続中
     extended_description_html: |
-      <h3>ルールを書くのに適した場所</h3>
-      <p>詳細説明が設定されていません。</p>
+      <h3>禁止事項</h3>
+      <p>
+      ・他者の迷惑になる行為(差別発言、ハラスメント、執拗な勧誘、誹謗中傷等)<br>
+      ・ハースストーンに関係の無い団体、グループへの勧誘<br>
+      ・スパム行為(短時間の連続投稿等)<br>
+      ・Blizzard Entertainment社の規約に違反する行為<br>
+      </p>
     features:
       humane_approach_body: 他の SNS の失敗から学び、Mastodon はソーシャルメディアが誤った使い方をされることの無いように倫理的な設計を目指しています。
       humane_approach_title: より思いやりのある設計
@@ -23,16 +28,16 @@ ja:
       within_reach_body: デベロッパーフレンドリーな API により実現された、iOS や Android、その他様々なプラットフォームのためのアプリでどこでも友人とやりとりできます。
       within_reach_title: いつでも身近に
     find_another_instance: 他のインスタンスを探す
-    generic_description: "%{domain} は、Mastodon インスタンスの一つです。"
-    hosted_on: Mastodon hosted on %{domain}
+    generic_description: "ハストドンはMastodonを使用したハースストーン情報コミュニティです"
+    hosted_on: ハースストーンをもっと楽しくする
     learn_more: もっと詳しく
     other_instances: 他のインスタンス
-    source_code: ソースコード
+    source_code: ハースストーン公式サイト
     status_count_after: トゥート
     status_count_before: トゥート数
     user_count_after: 人
     user_count_before: ユーザー数
-    what_is_mastodon: Mastodon とは？
+    what_is_mastodon: ハストドン とは？
   accounts:
     follow: フォロー
     followers: フォロワー
