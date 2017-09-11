@@ -17,9 +17,6 @@
 
 .landing-page
   .header-wrapper
-    .mascot-container
-      = image_tag asset_pack_path('elephant-fren.png'), alt: '', role: 'presentation', class: 'mascot'
-
     .header
       .container.links
         .brand
@@ -35,10 +32,6 @@
           %li= link_to t('about.about_this'), about_more_path
 
       .container.hero
-        .floats
-          %div{ role: 'presentation', class: 'float-1' }
-          %div{ role: 'presentation', class: 'float-2' }
-          %div{ role: 'presentation', class: 'float-3' }
         .heading
           %h1
             = @instance_presenter.site_title
@@ -53,11 +46,6 @@
               - else
                 = @instance_presenter.closed_registrations_message.html_safe
             = link_to t('about.find_another_instance'), 'https://joinmastodon.org/', class: 'button button-alternative button--block'
-
-  .about-short
-    .container
-      %h3= t('about.description_headline', domain: site_hostname)
-      %p= @instance_presenter.site_description.html_safe.presence || t('about.generic_description', domain: site_hostname)
 
   .features
     .container

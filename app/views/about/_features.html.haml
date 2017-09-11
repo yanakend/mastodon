@@ -1,16 +1,17 @@
 .features-list
+
+  .features-list__row
+    .text
+      %iframe{ :src => "https://clips.twitch.tv/embed?clip=FaithfulAmericanSwordPeoplesChamp&muted=true", :scrolling => "no", :height => "100%", :width => "110%", :style => "margin: 0 auto 20px;" }
+    .visual
+      = fa_icon 'fw play'
+
   .features-list__row
     .text
       %h6= t 'about.features.real_conversation_title'
       = t 'about.features.real_conversation_body'
     .visual
       = fa_icon 'fw comments'
-  .features-list__row
-    .text
-      %h6= t 'about.features.within_reach_title'
-      = t 'about.features.within_reach_body'
-    .visual
-      = fa_icon 'fw users'
   .features-list__row
     .text
       %h6= t 'about.features.humane_approach_title'

@@ -23,12 +23,12 @@ ja:
       humane_approach_title: マストドン（Mastodon）とは？
       not_a_product_body: Mastodon は営利的な SNS ではありません。広告や、データの収集・解析は無く、またユーザーの囲い込みもありません。
       not_a_product_title: あなたは人間であり、商品ではありません
-      real_conversation_body: 好きなように書ける500文字までの投稿や、文章やメディアの内容に警告をつけられる機能で、思い通りに自分自身を表現することができます。
-      real_conversation_title: 本当のコミュニケーションのために
+      real_conversation_body: ハストドンはハースストーンユーザーのためのTwitterライクなSNSです。
+      real_conversation_title: ハストドン（Hearthtodon）とは？
       within_reach_body: デベロッパーフレンドリーな API により実現された、iOS や Android、その他様々なプラットフォームのためのアプリでどこでも友人とやりとりできます。
       within_reach_title: いつでも身近に
     find_another_instance: 他のインスタンスを探す
-    generic_description: "ハストドンはMastodonを使用したハースストーン情報コミュニティです"
+    generic_description: "ハストドンはMastodonを使用したハースユーザーのためのTwitterライクなSNSです"
     hosted_on: ハースストーンをもっと楽しくする
     learn_more: もっと詳しく
     other_instances: 他のインスタンス
