@@ -11,8 +11,8 @@ defaults: &defaults
   site_description: ''
   site_extended_description: ''
   site_terms: ''
-  site_contact_username: ''
-  site_contact_email: ''
+  site_contact_username: 'Hearthtodon'
+  site_contact_email: 'admin@hearthtodon.com'
   open_registrations: true
   closed_registrations_message: ''
   open_deletion: true
