@@ -1,7 +1,7 @@
 ---
 ja:
   about:
-    about_mastodon_html: Mastodon は、オープンなウェブプロトコルを採用した、自由でオープンソースなソーシャルネットワークです。電子メールのような分散型の仕組みを採っています。
+    about_mastodon_html: Hearthtodon はハースストーン情報コミュニティです
     about_this: 詳細情報
     closed_registrations: 現在このインスタンスでの新規登録は受け付けていません。しかし、他のインスタンスにアカウントを作成しても全く同じネットワークに参加することができます。
     contact: 連絡先
@@ -19,8 +19,8 @@ ja:
       ・Blizzard Entertainment社の規約に違反する行為<br>
       </p>
     features:
-      humane_approach_body: 他の SNS の失敗から学び、Mastodon はソーシャルメディアが誤った使い方をされることの無いように倫理的な設計を目指しています。
-      humane_approach_title: より思いやりのある設計
+      humane_approach_body: マストドンは、所属するインスタンスを選んでアカウントを登録し、トゥートと呼ばれる投稿を通じてコミュニケーションを楽しむSNSです
+      humane_approach_title: マストドン（Mastodon）とは？
       not_a_product_body: Mastodon は営利的な SNS ではありません。広告や、データの収集・解析は無く、またユーザーの囲い込みもありません。
       not_a_product_title: あなたは人間であり、商品ではありません
       real_conversation_body: 好きなように書ける500文字までの投稿や、文章やメディアの内容に警告をつけられる機能で、思い通りに自分自身を表現することができます。
@@ -412,7 +412,7 @@ ja:
       weibo: Weibo
     current_session: 現在のセッション
     description: "%{browser} on %{platform}"
-    explanation: あなたのMastodonアカウントに現在ログインしているウェブブラウザの一覧です。
+    explanation: あなたのHearthtodonアカウントに現在ログインしているウェブブラウザの一覧です。
     ip: IP
     platforms:
       adobe_air: Adobe Air
@@ -432,7 +432,7 @@ ja:
     title: セッション
   settings:
     authorized_apps: 認証済みアプリ
-    back: Mastodon に戻る
+    back: Hearthtodon に戻る
     delete: アカウントの削除
     development: 開発
     edit_profile: プロフィールを編集
