@@ -195,12 +195,13 @@ export default class UI extends React.PureComponent {
     const { width, draggingOver } = this.state;
     const { children } = this.props;
 
+    let home = !isMobile(width) ? '/timelines/home' : '/timelines/public/local';
     return (
       <div className='ui' ref={this.setRef}>
         <TabsBar />
         <ColumnsAreaContainer ref={this.setColumnsAreaRef} singleColumn={isMobile(width)}>
           <WrappedSwitch>
-            <Redirect from='/' to='/timelines/public/local' exact />
+            <Redirect from='/' to={home} exact />
             <WrappedRoute path='/getting-started' component={GettingStarted} content={children} />
             <WrappedRoute path='/timelines/home' component={HomeTimeline} content={children} />
             <WrappedRoute path='/timelines/public' exact component={PublicTimeline} content={children} />
