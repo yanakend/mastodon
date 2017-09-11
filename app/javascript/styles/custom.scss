@@ -56,3 +56,8 @@
     text-shadow: 1px 1px 1px #000000;
   }
 }
+
+.reply-indicator__content a, .status__content a {
+    color: #99ccff;
+    text-decoration: none;
+}
