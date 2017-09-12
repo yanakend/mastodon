@@ -20,44 +20,50 @@
 @import 'admin';
 @import 'rtl';
 
-.column {
-  width: 350px;
+@media screen and (min-width: 1025px) {
+  .column {
+    width: 350px;
+  }
+
+  .landing-page {
+    .features {
+      #mastodon-timeline {
+        width: 350px;
+      }  
+    }
+  }
 }
 
-.landing-page .features .about-mastodon .features-list {
-  margin-top: 0
-}
-
+// top page
 .landing-page {
-  .features {
-    #mastodon-timeline {
-      width: 350px;
-    }  
+  .features .about-mastodon .features-list {
+    margin-top: 0
+  }
+
+  .header-wrapper {
+    background-image: url('../images/kotfz_wallpaper.jpg');
+    background-repeat: repeat-y;
+    background-position: center 55%;
+    background-size: auto auto;
+
+    .nav a {
+      text-shadow: 1px 1px 10px #000000;
+    }
+  }    
+
+  .header-wrapper h1 {
+    text-shadow: 2px 2px 2px #000000;
+
+    small {
+      color: #dddddd;
+      font-size: 14px;
+      text-shadow: 1px 1px 1px #000000;
+    }
   }
 }
 
-.landing-page .header-wrapper {
-  background-image: url('../images/kotfz_wallpaper.jpg');
-  background-repeat: repeat-y;
-  background-position: center 55%;
-  background-size: auto auto;
-
-  .nav a {
-    text-shadow: 1px 1px 10px #000000;
-  }
-}
-
-.landing-page .header-wrapper h1 {
-  text-shadow: 2px 2px 2px #000000;
-
-  small {
-    color: #dddddd;
-    font-size: 14px;
-    text-shadow: 1px 1px 1px #000000;
-  }
-}
-
+// replay & link
 .reply-indicator__content a, .status__content a {
-    color: #99ccff;
-    text-decoration: none;
+  color: #99ccff;
+  text-decoration: none;
 }

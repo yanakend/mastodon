@@ -19,7 +19,7 @@ ja:
       ・Blizzard Entertainment社の規約に違反する行為<br>
       </p>
     features:
-      humane_approach_body: マストドンは、所属するインスタンスを選んでアカウントを登録し、トゥートと呼ばれる投稿を通じてコミュニケーションを楽しむSNSです
+      humane_approach_body: マストドンは、所属するインスタンスを選んでアカウントを登録し、ツイートと呼ばれる投稿を通じてコミュニケーションを楽しむSNSです
       humane_approach_title: マストドン（Mastodon）とは？
       not_a_product_body: Mastodon は営利的な SNS ではありません。広告や、データの収集・解析は無く、またユーザーの囲い込みもありません。
       not_a_product_title: あなたは人間であり、商品ではありません
@@ -33,8 +33,8 @@ ja:
     learn_more: もっと詳しく
     other_instances: 他のインスタンス
     source_code: ハースストーン公式サイト
-    status_count_after: トゥート
-    status_count_before: トゥート数
+    status_count_after: ツイート 
+    status_count_before: ツイート数
     user_count_after: 人
     user_count_before: ユーザー数
     what_is_mastodon: ハストドン とは？
@@ -46,8 +46,8 @@ ja:
     nothing_here: 何もありません
     people_followed_by: "%{name} さんがフォロー中のアカウント"
     people_who_follow: "%{name} さんをフォロー中のアカウント"
-    posts: トゥート
-    posts_with_replies: トゥートと返信
+    posts: ツイート 
+    posts_with_replies: ツイートと返信
     remote_follow: リモートフォロー
     reserved_username: このユーザー名は予約されています。
     roles:

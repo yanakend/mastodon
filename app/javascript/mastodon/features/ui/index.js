@@ -195,7 +195,7 @@ export default class UI extends React.PureComponent {
     const { width, draggingOver } = this.state;
     const { children } = this.props;
 
-    let home = !isMobile(width) ? '/timelines/home' : '/timelines/public/local';
+    let home = isMobile(width) ? '/timelines/home' : '/getting-started';
     return (
       <div className='ui' ref={this.setRef}>
         <TabsBar />

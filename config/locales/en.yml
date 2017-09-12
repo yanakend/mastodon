@@ -24,7 +24,7 @@ en:
       within_reach_title: Always within reach
     find_another_instance: Find another instance
     generic_description: "%{domain} is one server in the network"
-    hosted_on: Mastodon hosted on %{domain}
+    hosted_on: Enjoy the Hearthstone
     learn_more: Learn more
     other_instances: Instance list
     source_code: Source code
