@@ -12,6 +12,7 @@ import Motion from 'react-motion/lib/Motion';
 import spring from 'react-motion/lib/spring';
 import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
+import StatusContent from '../../components/status_content';
 
 const messages = defineMessages({
   start: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
@@ -84,6 +85,8 @@ export default class Compose extends React.PureComponent {
       );
     }
 
+    const tags = ["フレンド募集", "80G", "イベント情報", "ピック指南", "レジェ到達"];
+
     return (
       <div className='drawer'>
         {header}
@@ -94,8 +97,20 @@ export default class Compose extends React.PureComponent {
           <div className='drawer__inner' onFocus={this.onFocus}>
             <NavigationContainer onClose={this.onBlur} />
             <ComposeFormContainer />
+            <div className="trend-tags">
+              <div className="trend-tags__header">
+                <i className="fa fa-line-chart trend-tags__header__icon" />
+                <div className="trend-tags__header__name">おすすめタグ</div>
+              </div>
+              {tags.map(tag => 
+                <ul className="status__content status__content--with-action">
+                  <Link key={tag} className='mention hashtag status-link' to={`/timelines/tag/${tag}`}>
+                    #{tag}
+                  </Link>
+                </ul>
+              )}
+            </div>
           </div>
-
           <Motion defaultStyle={{ x: -100 }} style={{ x: spring(showSearch ? 0 : -100, { stiffness: 210, damping: 20 }) }}>
             {({ x }) =>
               <div className='drawer__inner darker' style={{ transform: `translateX(${x}%)`, visibility: x === -100 ? 'hidden' : 'visible' }}>

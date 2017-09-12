@@ -67,3 +67,47 @@
   color: #99ccff;
   text-decoration: none;
 }
+
+.trend-tags__header {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px;
+  background: #313543;
+  font-size: 16px;
+}
+
+.trend-tags__header__icon {
+  width: 20px;
+  margin-right: 7px;
+}
+
+.trend-tags__header__name {
+  flex: 1;
+}
+
+ul.status__content {
+  display: inline-block;
+  margin: 4px;
+  padding: 6px;
+  background-color: #313543;
+  border-radius: 3px;
+
+  a {
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .getting-started__wrapper {
+    position: relative;
+    overflow-y: initial;
+  }
+  .getting-started {
+    padding-bottom: 0;
+    background: none;
+  }    
+}
+
+
