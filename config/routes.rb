@@ -184,6 +184,7 @@ Rails.application.routes.draw do
       end
 
       resources :streaming, only: [:index]
+      resources :twitch, only: [:live]
 
       get '/search', to: 'search#index', as: :search
 

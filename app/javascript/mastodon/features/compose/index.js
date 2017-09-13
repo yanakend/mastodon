@@ -13,6 +13,7 @@ import spring from 'react-motion/lib/spring';
 import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
 import StatusContent from '../../components/status_content';
+import { isMobile } from '../../is_mobile';
 
 const messages = defineMessages({
   start: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
@@ -57,6 +58,43 @@ export default class Compose extends React.PureComponent {
     this.props.dispatch(changeComposing(false));
   }
 
+  twitchWindow = () => {
+
+    //return (dispatch, getState) => {
+    //  if (getState().getIn(['cards', id], null) !== null) {
+    //    return;
+    //  }
+
+    //  api(getState).get(`/api/v1/twitch/${id}/card`).then(response => {
+    //    if (!response.data.url) {
+    //      return;
+    //    }
+
+    //    dispatch(fetchStatusCardSuccess(id, response.data));
+    //  }).catch(error => {
+    //    dispatch(fetchStatusCardFail(id, error));
+    //  });
+    //};
+
+
+    let twitchId = 'asmodaitv';
+    if (!twitchId) {
+      return null;
+    }
+
+    const autoplay = !isMobile(window.innerWidth);
+
+    return (
+      <div className="twitch-tags">
+        <div className="tags__header twitch-label">
+          <i className="fa fa-twitch tags__header__icon" />
+          <div className="tags__header__name">Twitch</div>
+        </div>
+        <iframe src={`https://player.twitch.tv/?channel=${twitchId}&muted=true&autoplay=${autoplay}`} frameborder="0" scrolling="no" height="100%" width="100%"></iframe>
+      </div>
+    );
+  }
+
   render () {
     const { multiColumn, showSearch, intl } = this.props;
 
@@ -98,9 +136,9 @@ export default class Compose extends React.PureComponent {
             <NavigationContainer onClose={this.onBlur} />
             <ComposeFormContainer />
             <div className="trend-tags">
-              <div className="trend-tags__header">
-                <i className="fa fa-line-chart trend-tags__header__icon" />
-                <div className="trend-tags__header__name">おすすめタグ</div>
+              <div className="tags__header">
+                <i className="fa fa-line-chart tags__header__icon" />
+                <div className="tags__header__name">おすすめタグ</div>
               </div>
               {tags.map(tag => 
                 <ul className="status__content status__content--with-action">
@@ -110,6 +148,7 @@ export default class Compose extends React.PureComponent {
                 </ul>
               )}
             </div>
+            {this.twitchWindow()}
           </div>
           <Motion defaultStyle={{ x: -100 }} style={{ x: spring(showSearch ? 0 : -100, { stiffness: 210, damping: 20 }) }}>
             {({ x }) =>
