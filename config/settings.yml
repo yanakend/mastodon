@@ -7,8 +7,8 @@
 # For more information, see docs/Running-Mastodon/Administration-guide.md
 #
 defaults: &defaults
-  site_title: Hearthtodon
-  site_description: ''
+  site_title: Hearthtodon (ハストドン) | Hearthstone (ハースストーン) SNSコミュニティ
+  site_description: 'ハースストーンユーザーのためのSNSコミュニティです。攻略・まとめもあります'
   site_extended_description: ''
   site_terms: ''
   site_contact_username: 'Hearthtodon'
