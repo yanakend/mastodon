@@ -19,6 +19,7 @@ import compose from './compose';
 import search from './search';
 import media_attachments from './media_attachments';
 import notifications from './notifications';
+import twitch from './twitch';
 
 const reducers = {
   timelines,
@@ -41,6 +42,7 @@ const reducers = {
   search,
   media_attachments,
   notifications,
+  twitch,
 };
 
 export default combineReducers(reducers);

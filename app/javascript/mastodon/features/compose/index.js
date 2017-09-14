@@ -14,6 +14,7 @@ import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
 import StatusContent from '../../components/status_content';
 import { isMobile } from '../../is_mobile';
+import { twitchFullscreen } from '../../actions/twitch';
 
 const messages = defineMessages({
   start: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
@@ -28,6 +29,7 @@ const messages = defineMessages({
 const mapStateToProps = state => ({
   columns: state.getIn(['settings', 'columns']),
   showSearch: state.getIn(['search', 'submitted']) && !state.getIn(['search', 'hidden']),
+  twitch: state.getIn(['twitch', 'isFullscreen']),
 });
 
 @connect(mapStateToProps)
@@ -39,6 +41,7 @@ export default class Compose extends React.PureComponent {
     columns: ImmutablePropTypes.list.isRequired,
     multiColumn: PropTypes.bool,
     showSearch: PropTypes.bool,
+    twitch: PropTypes.bool,
     intl: PropTypes.object.isRequired,
   };
 
@@ -56,6 +59,10 @@ export default class Compose extends React.PureComponent {
 
   onBlur = () => {
     this.props.dispatch(changeComposing(false));
+  }
+
+  clickTwitchFullscreen = () => {
+    this.props.dispatch(twitchFullscreen());
   }
 
   twitchWindow = () => {
@@ -76,21 +83,24 @@ export default class Compose extends React.PureComponent {
     //  });
     //};
 
-
     let twitchId = 'asmodaitv';
     if (!twitchId) {
+      return null;
+    }
+    if (this.props.twitch) {
       return null;
     }
 
     const autoplay = !isMobile(window.innerWidth);
 
+    //<i onClick={this.clickTwitchFullscreen} className="fa fa-expand tags__header__icon" />
     return (
       <div className="twitch-tags">
         <div className="tags__header twitch-label">
           <i className="fa fa-twitch tags__header__icon" />
           <div className="tags__header__name">Twitch</div>
         </div>
-        <iframe src={`https://player.twitch.tv/?channel=${twitchId}&muted=true&autoplay=${autoplay}`} frameborder="0" scrolling="no" height="100%" width="100%"></iframe>
+        <iframe src={`https://player.twitch.tv/?channel=${twitchId}&muted=true&autoplay=${autoplay}`} scrolling="no" height="100%" width="100%"></iframe>
       </div>
     );
   }
@@ -123,7 +133,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["フレンド募集", "80G", "イベント情報", "ピック指南", "レジェ到達"];
+    const tags = ["フレンド募集", "80G", "プレイオフ", "大会", "イベント", "なに切る"];
 
     return (
       <div className='drawer'>

@@ -41,7 +41,7 @@ defaults: &defaults
     - root
     - webmaster
     - administrator
-  bootstrap_timeline_accounts: ''
+  bootstrap_timeline_accounts: 'Hearthtodon'
 
 development:
   <<: *defaults
