@@ -14,7 +14,7 @@ import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
 import StatusContent from '../../components/status_content';
 import { isMobile } from '../../is_mobile';
-import { twitchFullscreen } from '../../actions/twitch';
+import { twitchFullscreen, twitchCloseScreen } from '../../actions/twitch';
 
 const messages = defineMessages({
   start: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
@@ -30,6 +30,7 @@ const mapStateToProps = state => ({
   columns: state.getIn(['settings', 'columns']),
   showSearch: state.getIn(['search', 'submitted']) && !state.getIn(['search', 'hidden']),
   twitch: state.getIn(['twitch', 'isFullscreen']),
+  twitchIsClose: state.getIn(['twitch', 'isCloseScreen']),
 });
 
 @connect(mapStateToProps)
@@ -42,6 +43,7 @@ export default class Compose extends React.PureComponent {
     multiColumn: PropTypes.bool,
     showSearch: PropTypes.bool,
     twitch: PropTypes.bool,
+    twitchIsClose: PropTypes.bool,
     intl: PropTypes.object.isRequired,
   };
 
@@ -65,40 +67,45 @@ export default class Compose extends React.PureComponent {
     this.props.dispatch(twitchFullscreen());
   }
 
+  clickTwitchClose = () => {
+    this.props.dispatch(twitchCloseScreen(true));
+  }
+
+  clickTwitchRestore = () => {
+    this.props.dispatch(twitchCloseScreen(false));
+  }
+
   twitchWindow = () => {
 
-    //return (dispatch, getState) => {
-    //  if (getState().getIn(['cards', id], null) !== null) {
-    //    return;
-    //  }
-
-    //  api(getState).get(`/api/v1/twitch/${id}/card`).then(response => {
-    //    if (!response.data.url) {
-    //      return;
-    //    }
-
-    //    dispatch(fetchStatusCardSuccess(id, response.data));
-    //  }).catch(error => {
-    //    dispatch(fetchStatusCardFail(id, error));
-    //  });
-    //};
-
-    let twitchId = 'playhearthstonejp';
+    let twitchId = 'playhearthstone';
     if (!twitchId) {
       return null;
     }
     if (this.props.twitch) {
       return null;
     }
+    if (this.props.twitchIsClose) {
+      return (
+        <div className="twitch-tags">
+          <div className="tags__header twitch-label">
+            <i className="fa fa-twitch tags__header__icon" />
+            <div className="tags__header__name">Twitch</div>
+            <i onClick={this.clickTwitchRestore} className="fa fa-window-restore tags__header__icon" />
+          </div>
+        </div>
+      );
+    }
 
     const autoplay = !isMobile(window.innerWidth);
+    const fullIcon = isMobile(window.innerWidth) ? null : <i onClick={this.clickTwitchFullscreen} className="fa fa-expand tags__header__icon" />;
 
-    //<i onClick={this.clickTwitchFullscreen} className="fa fa-expand tags__header__icon" />
     return (
       <div className="twitch-tags">
         <div className="tags__header twitch-label">
           <i className="fa fa-twitch tags__header__icon" />
           <div className="tags__header__name">Twitch</div>
+          {fullIcon}
+          <i onClick={this.clickTwitchClose} className="fa fa-window-close tags__header__icon" />
         </div>
         <iframe src={`https://player.twitch.tv/?channel=${twitchId}&muted=true&autoplay=${autoplay}`} scrolling="no" height="100%" width="100%"></iframe>
       </div>
@@ -133,7 +140,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["フレンド募集", "80G", "プレイオフ", "大会", "イベント", "なに切る"];
+    const tags = ["フレンド募集", "80G", "プレイオフ", "大会", "イベント", "要望"];
 
     return (
       <div className='drawer'>

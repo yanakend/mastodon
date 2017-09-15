@@ -15,6 +15,7 @@ import { clearStatusesHeight } from '../../actions/statuses';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 import UploadArea from './components/upload_area';
 import ColumnsAreaContainer from './containers/columns_area_container';
+import { twitchMiniscreen } from '../../actions/twitch';
 import {
   Compose,
   Status,
@@ -44,6 +45,7 @@ import '../../components/status';
 
 const mapStateToProps = state => ({
   isComposing: state.getIn(['compose', 'is_composing']),
+  twitch: state.getIn(['twitch', 'isFullscreen']),
 });
 
 @connect(mapStateToProps)
@@ -59,6 +61,7 @@ export default class UI extends React.PureComponent {
     children: PropTypes.node,
     isComposing: PropTypes.bool,
     location: PropTypes.object,
+    twitch: PropTypes.bool,
   };
 
   state = {
@@ -191,6 +194,35 @@ export default class UI extends React.PureComponent {
     this.columnsAreaNode = c.getWrappedInstance().getWrappedInstance();
   }
 
+  clickTwitchMiniscreen = () => {
+    this.props.dispatch(twitchMiniscreen());
+  }
+
+  twitchWindow = () => {
+
+    let twitchId = 'playhearthstone';
+    if (!twitchId) {
+      return null;
+    }
+    if (!this.props.twitch) {
+      return null;
+    }
+    if (isMobile(window.innerWidth)) {
+      twitchMiniscreen();
+      return null;
+    }
+    return (
+      <div className="twitch-tags twitch-full">
+        <div className="tags__header twitch-label">
+          <i className="fa fa-twitch tags__header__icon" />
+          <div className="tags__header__name">Twitch</div>
+          <i onClick={this.clickTwitchMiniscreen} className="fa fa-compress tags__header__icon" />
+        </div>
+        <iframe className="video" src={`https://player.twitch.tv/?channel=${twitchId}&muted=true&autoplay=true`} scrolling="no" height="100%" width="100%"></iframe>
+      </div>
+    );
+  }
+
   render () {
     const { width, draggingOver } = this.state;
     const { children } = this.props;
@@ -233,6 +265,8 @@ export default class UI extends React.PureComponent {
         <LoadingBarContainer className='loading-bar' />
         <ModalContainer />
         <UploadArea active={draggingOver} onClose={this.closeUploadModal} />
+
+        {this.twitchWindow()}
       </div>
     );
   }

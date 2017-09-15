@@ -78,10 +78,17 @@
 }
 
 .twitch-tags {
-  //margin: auto 0 10px;
   .twitch-label {
     background: #4B367C;
   }
+}
+
+.twitch-full {
+  position: absolute; 
+  bottom: 50px; 
+  left: 0px; 
+  height: 480px; 
+  width: 853px;
 }
 
 .tags__header__icon {
@@ -120,12 +127,6 @@ ul.status__content {
     padding-right: 0;
 }
 
-.video {
-  position: relative;
-  height: 0;
-  padding: 30px 0 56.25%;
-  overflow: hidden;
-}
 .video iframe {
   position: absolute;
   top: 0;
