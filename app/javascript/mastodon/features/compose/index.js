@@ -83,7 +83,7 @@ export default class Compose extends React.PureComponent {
     //  });
     //};
 
-    let twitchId = 'asmodaitv';
+    let twitchId = 'playhearthstonejp';
     if (!twitchId) {
       return null;
     }
