@@ -77,7 +77,7 @@ export default class Compose extends React.PureComponent {
 
   twitchWindow = () => {
 
-    let twitchId = 'shinichirooo';
+    let twitchId = 'dreamhackhs';
     if (!twitchId) {
       return null;
     }
