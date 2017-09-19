@@ -200,7 +200,7 @@ export default class UI extends React.PureComponent {
 
   twitchWindow = () => {
 
-    let twitchId = 'dreamhackhs';
+    let twitchId = 'araiance';
     if (!twitchId) {
       return null;
     }
