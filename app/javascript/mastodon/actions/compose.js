@@ -35,6 +35,7 @@ export const COMPOSE_LISTABILITY_CHANGE = 'COMPOSE_LISTABILITY_CHANGE';
 export const COMPOSE_COMPOSING_CHANGE = 'COMPOSE_COMPOSING_CHANGE';
 
 export const COMPOSE_EMOJI_INSERT = 'COMPOSE_EMOJI_INSERT';
+export const COMPOSE_TAG_INSERT = 'COMPOSE_TAG_INSERT';
 
 export function changeCompose(text) {
   return {
@@ -295,3 +296,11 @@ export function changeComposing(value) {
     value,
   };
 }
+
+export function insertTagCompose(tag) {
+  return {
+    type: COMPOSE_TAG_INSERT,
+    tag,
+  };
+}
+

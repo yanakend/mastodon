@@ -9,6 +9,7 @@ import {
   selectComposeSuggestion,
   changeComposeSpoilerText,
   insertEmojiCompose,
+  insertTagCompose,
 } from '../../../actions/compose';
 
 const mapStateToProps = state => ({
@@ -58,6 +59,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   onPickEmoji (position, data) {
     dispatch(insertEmojiCompose(position, data));
+  },
+
+  onInsertHashtag (tag) {
+    dispatch(insertTagCompose(tag));
   },
 
 });

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { mountCompose, unmountCompose } from '../../actions/compose';
+import { insertTagCompose } from '../../actions/compose';
 import Link from 'react-router-dom/Link';
 import { injectIntl, defineMessages } from 'react-intl';
 import SearchContainer from './containers/search_container';
@@ -24,6 +25,7 @@ const messages = defineMessages({
   community: { id: 'navigation_bar.community_timeline', defaultMessage: 'Local timeline' },
   preferences: { id: 'navigation_bar.preferences', defaultMessage: 'Preferences' },
   logout: { id: 'navigation_bar.logout', defaultMessage: 'Logout' },
+  trend_tags: { id: 'trend_tags.title', defaultMessage: 'Suggested tags' },
 });
 
 const mapStateToProps = state => ({
@@ -69,6 +71,10 @@ export default class Compose extends React.PureComponent {
 
   clickTwitchClose = () => {
     this.props.dispatch(twitchCloseScreen(true));
+  }
+
+  appendTag = (e, name) => {
+    this.props.dispatch(insertTagCompose(`#${name}`));
   }
 
   clickTwitchRestore = () => {
@@ -140,7 +146,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["フレンド募集", "80G", "ap", "大会", "イベント", "ヘルプ", "要望"];
+    const tags = ["フレンド募集", "80G", "ap", "大会", "ヘルプ", "イベント", "要望"];
 
     return (
       <div className='drawer'>
@@ -155,13 +161,14 @@ export default class Compose extends React.PureComponent {
             <div className="trend-tags">
               <div className="tags__header">
                 <i className="fa fa-line-chart tags__header__icon" />
-                <div className="tags__header__name">おすすめタグ</div>
+                <div className="tags__header__name">{intl.formatMessage(messages.trend_tags)}</div>
               </div>
               {tags.map(tag => 
                 <ul className="status__content status__content--with-action">
                   <Link key={tag} className='mention hashtag status-link' to={`/timelines/tag/${tag}`}>
                     #{tag}
                   </Link>
+                  <i onClick={e => this.appendTag(e, tag)} data-index={tag} className="fa fa-pencil tags__header__icon tags_add"/>
                 </ul>
               )}
             </div>
