@@ -15,7 +15,6 @@ import { Compose, Notifications, HomeTimeline, CommunityTimeline, PublicTimeline
 
 import detectPassiveEvents from 'detect-passive-events';
 import { scrollRight } from '../../../scroll';
-import { twitchMiniscreen } from '../../../actions/twitch';
 
 const componentMap = {
   'COMPOSE': Compose,
@@ -139,32 +138,6 @@ export default class ColumnsArea extends ImmutablePureComponent {
     return <BundleColumnError {...props} />;
   }
 
-  clickTwitchMiniscreen = () => {
-    this.props.dispatch(twitchMiniscreen());
-  }
-
-  renderTwitch = () => {
-
-    let twitchId = 'asmodaitv';
-    if (!twitchId) {
-      return null;
-    }
-    if (!this.props.twitch) {
-      return null;
-    }
-
-    return (
-      <div id="child-A" className="twitch-tags">
-        <div className="tags__header twitch-label">
-          <i className="fa fa-twitch tags__header__icon"></i>
-          <div className="tags__header__name">Twitch</div>
-          <i onClick={this.clickTwitchMiniscreen} className="fa fa-expand tags__header__icon" />
-        </div>
-        <iframe className="video" src="https://player.twitch.tv/?channel=thijshs&amp;muted=true&amp;autoplay=true" scrolling="no" height="90%" width="100%"></iframe>
-      </div>
-    );
-  }
-
   render () {
     const { columns, children, singleColumn } = this.props;
     const { shouldAnimate } = this.state;
@@ -191,8 +164,6 @@ export default class ColumnsArea extends ImmutablePureComponent {
             </BundleContainer>
           );
         })}
-
-        {this.renderTwitch()}
 
         {React.Children.map(children, child => React.cloneElement(child, { multiColumn: true }))}
       </div>

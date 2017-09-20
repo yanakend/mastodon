@@ -208,7 +208,6 @@ export default class UI extends React.PureComponent {
       return null;
     }
     if (isMobile(window.innerWidth)) {
-      twitchMiniscreen();
       return null;
     }
     return (
