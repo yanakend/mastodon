@@ -113,6 +113,10 @@
   height: 480px; 
   width: 853px;
   z-index: 101;
+
+  &[draggable=true] {
+    cursor: move;
+  }
 }
 
 .tags__header__icon {
@@ -158,4 +162,3 @@ ul.status__content {
   width: 100%;
   height: 100%;
 }
-

@@ -158,6 +158,33 @@ export default class UI extends React.PureComponent {
     this.props.dispatch(refreshNotifications());
   }
 
+  componentDidMount () {
+    var offset = [0, 0];
+    var isDown = false;
+    var div = document.getElementsByClassName("draggable")[0];
+
+    div.addEventListener('mousedown', function(e) {
+      isDown = true;
+      offset = [
+        div.offsetLeft - e.clientX,
+        div.offsetTop - e.clientY
+      ];
+    }, true);
+
+    document.addEventListener('mouseup', function() {
+      isDown = false;
+    }, true);
+
+    document.addEventListener('mousemove', function(event) {
+      event.preventDefault();
+      if (isDown) {
+        var mousePosition = { x : event.clientX, y : event.clientY };
+        div.style.left = (mousePosition.x + offset[0]) + 'px';
+        div.style.top  = (mousePosition.y + offset[1]) + 'px';
+      }
+    }, true);
+  }
+
   shouldComponentUpdate (nextProps) {
     if (nextProps.isComposing !== this.props.isComposing) {
       // Avoid expensive update just to toggle a class
@@ -201,17 +228,14 @@ export default class UI extends React.PureComponent {
   twitchWindow = () => {
 
     let twitchId = 'kolento';
-    if (!twitchId) {
-      return null;
-    }
-    if (!this.props.twitch) {
-      return null;
-    }
-    if (isMobile(window.innerWidth)) {
-      return null;
+    if (
+      !twitchId || 
+      !this.props.twitch
+    ) {
+      return (<div className="draggable" draggable="true"></div>);
     }
     return (
-      <div className="twitch-tags twitch-full">
+      <div className="twitch-tags twitch-full draggable" draggable="true">
         <div className="tags__header twitch-label">
           <i className="fa fa-twitch tags__header__icon" />
           <div className="tags__header__name">Twitch</div>

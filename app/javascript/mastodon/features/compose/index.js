@@ -78,10 +78,10 @@ export default class Compose extends React.PureComponent {
   twitchWindow = () => {
 
     let twitchId = 'kolento';
-    if (!twitchId) {
-      return null;
-    }
-    if (this.props.twitch) {
+    if (
+      !twitchId ||
+      this.props.twitch
+    ) {
       return null;
     }
     if (this.props.twitchIsClose) {
@@ -140,7 +140,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["フレンド募集", "80G", "プレイオフ", "大会", "イベント", "要望"];
+    const tags = ["フレンド募集", "80G", "ap", "大会", "イベント", "ヘルプ", "要望"];
 
     return (
       <div className='drawer'>
