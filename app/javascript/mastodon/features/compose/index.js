@@ -146,7 +146,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["フレンド募集", "80G", "ap", "大会", "ヘルプ", "イベント", "要望"];
+    const tags = ["フレンド募集", "80G", "ap", "大会", "配信", "イベント", "要望"];
 
     return (
       <div className='drawer'>

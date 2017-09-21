@@ -176,8 +176,8 @@ export default class UI extends React.PureComponent {
     }, true);
 
     document.addEventListener('mousemove', function(event) {
-      event.preventDefault();
       if (isDown) {
+        event.preventDefault();
         var mousePosition = { x : event.clientX, y : event.clientY };
         div.style.left = (mousePosition.x + offset[0]) + 'px';
         div.style.top  = (mousePosition.y + offset[1]) + 'px';
