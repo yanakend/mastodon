@@ -7,12 +7,6 @@ class Auth::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :set_sessions, only: [:edit, :update]
 
-  def create
-    super do |user|
-      DefaultFollowWorker.perform_async(user.account_id) if user.persisted?
-    end
-  end
-
   def destroy
     not_found
   end

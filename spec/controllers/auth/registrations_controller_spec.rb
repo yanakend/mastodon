@@ -88,19 +88,9 @@ RSpec.describe Auth::RegistrationsController, type: :controller do
         post :create, params: { user: { account_attributes: { username: 'test' }, email: 'test@example.com', password: '12345678', password_confirmation: '12345678' } }
       end
 
-      before do
-        Fabricate(:user, account: Fabricate(:account, username: 'pixiv'))
-        allow(DefaultFollowWorker).to receive(:perform_async)
-      end
-
       it 'redirects to login page' do
         subject
         expect(response).to redirect_to new_user_session_path
-      end
-
-      it 'calls DefaultFollowWorker' do
-        subject
-        expect(DefaultFollowWorker).to have_received(:perform_async)
       end
 
       it 'creates user' do
