@@ -7,7 +7,7 @@ import { Map as ImmutableMap } from 'immutable';
 
 const initialState = ImmutableMap({
   isFullscreen: false,
-  isCloseScreen: sessionStorage.isCloseTwitchWindow == 'true' ? true : false,
+  isCloseScreen: localStorage.isCloseTwitchWindow == 'true' ? true : false,
 });
 
 export default function twitch(state = initialState, action) {
@@ -17,7 +17,7 @@ export default function twitch(state = initialState, action) {
   case TWITCH_SMALL_SCREEN:
     return state.setIn(['isFullscreen'], false);
   case TWITCH_CLOSE_SCREEN:
-    sessionStorage.isCloseTwitchWindow = action.status;
+    localStorage.isCloseTwitchWindow = action.status;
     return state.setIn(['isCloseScreen'], action.status);
   default:
     return state;
