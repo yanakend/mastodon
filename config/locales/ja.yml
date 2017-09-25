@@ -209,6 +209,8 @@ ja:
         desc_html: ランディングページに公開タイムラインを表示します
         title: タイムラインプレビュー
       title: サイト設定
+    twitch:
+      title: Twitchチャンネル
     statuses:
       back_to_account: アカウントページに戻る
       batch:

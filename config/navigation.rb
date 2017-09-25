@@ -28,6 +28,7 @@ SimpleNavigation::Configuration.run do |navigation|
       admin.item :sidekiq, safe_join([fa_icon('diamond fw'), 'Sidekiq']), sidekiq_url, link_html: { target: 'sidekiq' }
       admin.item :pghero, safe_join([fa_icon('database fw'), 'PgHero']), pghero_url, link_html: { target: 'pghero' }
       admin.item :settings, safe_join([fa_icon('cogs fw'), t('admin.settings.title')]), edit_admin_settings_url
+      admin.item :twitch, safe_join([fa_icon('twitch fw'), t('admin.twitch.title')]), admin_twitch_url, highlights_on: %r{/admin/twitch}
     end
 
     primary.item :logout, safe_join([fa_icon('sign-out fw'), t('auth.logout')]), destroy_user_session_url, link_html: { 'data-method' => 'delete' }

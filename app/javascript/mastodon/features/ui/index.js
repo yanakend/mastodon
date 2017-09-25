@@ -15,7 +15,7 @@ import { clearHeight } from '../../actions/height_cache';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 import UploadArea from './components/upload_area';
 import ColumnsAreaContainer from './containers/columns_area_container';
-import { twitchMiniscreen } from '../../actions/twitch';
+import { twitchMiniscreen, fetchTwitchSelector } from '../../actions/twitch';
 import {
   Compose,
   Status,
@@ -46,6 +46,7 @@ import '../../components/status';
 const mapStateToProps = state => ({
   isComposing: state.getIn(['compose', 'is_composing']),
   twitch: state.getIn(['twitch', 'isFullscreen']),
+  twitchChannel: state.getIn(['twitch', 'channel']),
 });
 
 @connect(mapStateToProps)
@@ -62,6 +63,7 @@ export default class UI extends React.PureComponent {
     isComposing: PropTypes.bool,
     location: PropTypes.object,
     twitch: PropTypes.bool,
+    twitchChannel: PropTypes.string,
   };
 
   state = {
@@ -225,15 +227,23 @@ export default class UI extends React.PureComponent {
     this.props.dispatch(twitchMiniscreen());
   }
 
+  fetchTwitchChannel = () => {
+    this.props.dispatch(fetchTwitchSelector());
+  }
+
   twitchWindow = () => {
 
-    let twitchId = 'blizzardzhtw';
-    if (
-      !twitchId || 
-      !this.props.twitch
-    ) {
+    if (!this.props.twitch) {
       return (<div className="draggable" draggable="true"></div>);
     }
+
+    if (!this.props.twitchChannel) {
+      this.fetchTwitchChannel();
+      return (<div className="draggable" draggable="true"></div>);
+    }
+
+    const twitchId = this.props.twitchChannel;
+
     return (
       <div className="twitch-tags twitch-full draggable" draggable="true">
         <div className="tags__header twitch-label">

@@ -15,7 +15,7 @@ import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
 import StatusContent from '../../components/status_content';
 import { isMobile } from '../../is_mobile';
-import { twitchFullscreen, twitchCloseScreen } from '../../actions/twitch';
+import { twitchFullscreen, twitchCloseScreen, fetchTwitchSelector } from '../../actions/twitch';
 
 const messages = defineMessages({
   start: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
@@ -33,6 +33,7 @@ const mapStateToProps = state => ({
   showSearch: state.getIn(['search', 'submitted']) && !state.getIn(['search', 'hidden']),
   twitch: state.getIn(['twitch', 'isFullscreen']),
   twitchIsClose: state.getIn(['twitch', 'isCloseScreen']),
+  twitchChannel: state.getIn(['twitch', 'channel']),
 });
 
 @connect(mapStateToProps)
@@ -47,6 +48,7 @@ export default class Compose extends React.PureComponent {
     twitch: PropTypes.bool,
     twitchIsClose: PropTypes.bool,
     intl: PropTypes.object.isRequired,
+    twitchChannel: PropTypes.string,
   };
 
   componentDidMount () {
@@ -63,6 +65,10 @@ export default class Compose extends React.PureComponent {
 
   onBlur = () => {
     this.props.dispatch(changeComposing(false));
+  }
+
+  fetchTwitchChannel = () => {
+    this.props.dispatch(fetchTwitchSelector());
   }
 
   clickTwitchFullscreen = () => {
@@ -83,13 +89,15 @@ export default class Compose extends React.PureComponent {
 
   twitchWindow = () => {
 
-    let twitchId = 'blizzardzhtw';
-    if (
-      !twitchId ||
-      this.props.twitch
-    ) {
+    if (this.props.twitch) {
       return null;
     }
+
+    if (!this.props.twitchChannel) {
+      this.fetchTwitchChannel();
+      return null;
+    }
+
     if (this.props.twitchIsClose) {
       return (
         <div className="twitch-tags">
@@ -102,6 +110,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
+    const twitchId = this.props.twitchChannel;
     const autoplay = !isMobile(window.innerWidth);
     const fullIcon = isMobile(window.innerWidth) ? null : <i onClick={this.clickTwitchFullscreen} className="fa fa-expand tags__header__icon" />;
 
@@ -146,7 +155,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["フレンド募集", "80G", "ap", "大会", "配信", "イベント", "要望"];
+    const tags = ["ローグ", "フレンド募集", "80G", "ap", "大会", "配信", "イベント", "要望"];
 
     return (
       <div className='drawer'>

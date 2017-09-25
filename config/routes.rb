@@ -108,6 +108,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:index]
     resources :domain_blocks, only: [:index, :new, :create, :show, :destroy]
     resource :settings, only: [:edit, :update]
+    resource :twitch, only: [:index, :show, :edit]
 
     resources :instances, only: [:index] do
       collection do
@@ -186,7 +187,7 @@ Rails.application.routes.draw do
       end
 
       resources :streaming, only: [:index]
-      resources :twitch, only: [:live]
+      resources :twitch, only: [:index]
 
       get '/search', to: 'search#index', as: :search
 

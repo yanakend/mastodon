@@ -40,3 +40,11 @@
 
   .actions
     = f.button :button, t('generic.save_changes'), type: :submit
+
+  %hr/
+
+  .fields-group
+    = f.input :bootstrap_timeline_accounts, wrapper: :with_block_label, label: t('admin.settings.bootstrap_timeline_accounts.title'), hint: t('admin.settings.bootstrap_timeline_accounts.desc_html')
+
+  .actions
+    = f.button :button, t('generic.save_changes'), type: :submit
