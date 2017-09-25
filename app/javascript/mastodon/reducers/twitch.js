@@ -1,6 +1,5 @@
 import {
-  TWITCH_LARGE_SCREEN, 
-  TWITCH_SMALL_SCREEN,
+  TWITCH_CHANGE_SCREEN, 
   TWITCH_CLOSE_SCREEN,
   TWITCH_CHANNEL,
 } from '../actions/twitch';
@@ -14,10 +13,8 @@ const initialState = ImmutableMap({
 
 export default function twitch(state = initialState, action) {
   switch(action.type) {
-  case TWITCH_LARGE_SCREEN:
-    return state.setIn(['isFullscreen'], true);
-  case TWITCH_SMALL_SCREEN:
-    return state.setIn(['isFullscreen'], false);
+  case TWITCH_CHANGE_SCREEN:
+    return state.setIn(['isFullscreen'], action.status);
   case TWITCH_CLOSE_SCREEN:
     localStorage.isCloseTwitchWindow = action.status;
     return state.setIn(['isCloseScreen'], action.status);

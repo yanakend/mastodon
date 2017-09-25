@@ -15,7 +15,7 @@ import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
 import StatusContent from '../../components/status_content';
 import { isMobile } from '../../is_mobile';
-import { twitchFullscreen, twitchCloseScreen, fetchTwitchSelector } from '../../actions/twitch';
+import { twitchChangeScreen, twitchCloseScreen, fetchTwitchSelector } from '../../actions/twitch';
 
 const messages = defineMessages({
   start: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
@@ -71,16 +71,16 @@ export default class Compose extends React.PureComponent {
     this.props.dispatch(fetchTwitchSelector());
   }
 
+  appendTag = (e, name) => {
+    this.props.dispatch(insertTagCompose(`#${name}`));
+  }
+
   clickTwitchFullscreen = () => {
-    this.props.dispatch(twitchFullscreen());
+    this.props.dispatch(twitchChangeScreen(true));
   }
 
   clickTwitchClose = () => {
     this.props.dispatch(twitchCloseScreen(true));
-  }
-
-  appendTag = (e, name) => {
-    this.props.dispatch(insertTagCompose(`#${name}`));
   }
 
   clickTwitchRestore = () => {

@@ -15,7 +15,7 @@ import { clearHeight } from '../../actions/height_cache';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 import UploadArea from './components/upload_area';
 import ColumnsAreaContainer from './containers/columns_area_container';
-import { twitchMiniscreen, fetchTwitchSelector } from '../../actions/twitch';
+import { twitchChangeScreen, fetchTwitchSelector } from '../../actions/twitch';
 import {
   Compose,
   Status,
@@ -224,7 +224,7 @@ export default class UI extends React.PureComponent {
   }
 
   clickTwitchMiniscreen = () => {
-    this.props.dispatch(twitchMiniscreen());
+    this.props.dispatch(twitchChangeScreen(false));
   }
 
   fetchTwitchChannel = () => {

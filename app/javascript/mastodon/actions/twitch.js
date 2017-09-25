@@ -1,19 +1,13 @@
 import api, { getLinks } from '../api';
 
-export const TWITCH_LARGE_SCREEN = 'TWITCH_LARGE_SCREEN';
-export const TWITCH_SMALL_SCREEN = 'TWITCH_SMALL_SCREEN';
+export const TWITCH_CHANGE_SCREEN = 'TWITCH_CHANGE_SCREEN';
 export const TWITCH_CLOSE_SCREEN = 'TWITCH_CLOSE_SCREEN';
 export const TWITCH_CHANNEL = 'TWITCH_CHANNEL';
 
-export function twitchFullscreen() {
+export function twitchChangeScreen(status) {
   return {
-    type: TWITCH_LARGE_SCREEN,
-  };
-};
-
-export function twitchMiniscreen() {
-  return {
-    type: TWITCH_SMALL_SCREEN,
+    type: TWITCH_CHANGE_SCREEN,
+    status: status,
   };
 };
 
