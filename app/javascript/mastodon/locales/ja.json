@@ -130,7 +130,7 @@
   "notifications.column_settings.sound": "通知音を再生",
   "onboarding.done": "完了",
   "onboarding.next": "次へ",
-  "onboarding.page_five.public_timelines": "連合タイムラインでは{domain}の人がフォローしているHearthtodon全体での公開投稿を表示します。同じくローカルタイムラインでは{domain}のみの公開投稿を表示します。",
+  "onboarding.page_five.public_timelines": "連合タイムラインでは{domain}の人がフォローしているMastodon全体での公開投稿を表示します。同じくローカルタイムラインでは{domain}のみの公開投稿を表示します。",
   "onboarding.page_four.home": "「ホーム」タイムラインではあなたがフォローしている人の投稿を表示します。",
   "onboarding.page_four.notifications": "「通知」ではあなたへの他の人からの関わりを表示します。",
   "onboarding.page_one.federation": "Hearthtodonは誰でも参加できるハースストーンコミュニティです。",

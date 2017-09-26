@@ -88,7 +88,7 @@ const PageThree = ({ me }) => (
       </div>
     </div>
 
-    <p><FormattedMessage id='onboarding.page_three.search' defaultMessage='Use the search bar to find people and look at hashtags, such as {illustration} and {introductions}. To look for a person who is not on this instance, use their full handle.' values={{ illustration: <Permalink to='/timelines/tag/illustration' href='/tags/illustration'>#illustration</Permalink>, introductions: <Permalink to='/timelines/tag/introductions' href='/tags/introductions'>#introductions</Permalink> }} /></p>
+    <p><FormattedMessage id='onboarding.page_three.search' defaultMessage='Use the search bar to find people and look at hashtags, such as {illustration} and {introductions}. To look for a person who is not on this instance, use their full handle.' values={{ illustration: <Permalink to='/timelines/tag/フレンド募集' href='/tags/フレンド募集'>#フレンド募集</Permalink>, introductions: <Permalink to='/timelines/tag/80G' href='/tags/80G'>#80G</Permalink> }} /></p>
     <p><FormattedMessage id='onboarding.page_three.profile' defaultMessage='Edit your profile to change your avatar, bio, and display name. There, you will also find other preferences.' /></p>
   </div>
 );
@@ -179,6 +179,10 @@ export default class OnboardingModal extends React.PureComponent {
     admin: ImmutablePropTypes.map,
   };
 
+  static contextTypes = {
+    router: PropTypes.object,
+  };
+
   state = {
     currentIndex: 0,
   };
@@ -196,11 +200,17 @@ export default class OnboardingModal extends React.PureComponent {
 
   componentDidMount() {
     window.addEventListener('keyup', this.handleKeyUp);
-    this.props.dispatch(insertTagCompose("ハストドンはじめました #はじめてのトゥート"));
   }
 
   componentWillUnmount() {
     window.addEventListener('keyup', this.handleKeyUp);
+
+    // Jump this url after modal was closed
+    const path = '/timelines/public/local';
+    this.context.router.history.push(path);
+    
+    // Put default toot
+    this.props.dispatch(insertTagCompose("ハストドンはじめました #はじめてのトゥート"));
   }
 
   handleSkip = (e) => {
