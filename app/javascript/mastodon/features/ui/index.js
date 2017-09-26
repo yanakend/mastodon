@@ -251,7 +251,7 @@ export default class UI extends React.PureComponent {
           <div className="tags__header__name">Twitch</div>
           <i onClick={this.clickTwitchMiniscreen} className="fa fa-compress tags__header__icon" />
         </div>
-        <iframe className="video" src={`https://player.twitch.tv/?channel=${twitchId}&muted=true&autoplay=true`} scrolling="no" height="100%" width="100%"></iframe>
+        <iframe className="video" src={`https://player.twitch.tv/?channel=${twitchId}&muted=true&autoplay=true`} scrolling="no" height="480px" width="100%"></iframe>
       </div>
     );
   }
