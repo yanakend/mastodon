@@ -25,16 +25,7 @@ module UserTrackingConcern
   end
 
   def user_needs_feed_update?
-    if current_user.last_sign_in_at < REGENERATE_FEED_DAYS.days.ago
-      return true
-    end
-
-    if !Redis.current.get("account:#{current_user.account_id}:generate_once")
-      Redis.current.set("account:#{current_user.account_id}:generate_once", true)
-      return true
-    end
-
-    return false
+    current_user.last_sign_in_at < REGENERATE_FEED_DAYS.days.ago
   end
 
   def regenerate_feed!
