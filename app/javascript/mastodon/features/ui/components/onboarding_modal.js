@@ -10,6 +10,7 @@ import ComposeForm from '../../compose/components/compose_form';
 import Search from '../../compose/components/search';
 import NavigationBar from '../../compose/components/navigation_bar';
 import ColumnHeader from './column_header';
+import { insertTagCompose } from '../../../actions/compose';
 import { List as ImmutableList } from 'immutable';
 
 const noop = () => { };
@@ -47,7 +48,7 @@ const PageTwo = ({ me }) => (
         <NavigationBar account={me} />
       </div>
       <ComposeForm
-        text='Awoo! #introductions'
+        text='はじめてのトゥート #はじめてのトゥート'
         suggestions={ImmutableList()}
         mentionedDomains={[]}
         spoiler={false}
@@ -195,6 +196,7 @@ export default class OnboardingModal extends React.PureComponent {
 
   componentDidMount() {
     window.addEventListener('keyup', this.handleKeyUp);
+    this.props.dispatch(insertTagCompose("ハストドンはじめました #はじめてのトゥート"));
   }
 
   componentWillUnmount() {
