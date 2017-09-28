@@ -177,3 +177,25 @@ ul.status__content {
     height: 100px;
     margin-right: 0;
 }
+
+.scrollable {
+  @supports(display: grid) { // hack to fix Chrome <57
+    contain: strict;
+  }
+}
+
+.optionally-scrollable {
+  .amazon-banner {
+    border-radius: 5px;
+    width: 80%;
+    padding-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.getting-started {
+  padding-bottom: 0;
+  background: none;
+}

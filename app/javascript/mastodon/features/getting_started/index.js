@@ -102,6 +102,9 @@ export default class GettingStarted extends ImmutablePureComponent {
                 values={{ github: <a href='https://github.com/tootsuite/mastodon' rel='noopener' target='_blank'>tootsuite/mastodon</a> }}
               />
             </p>
+            <a target="_blank" href="https://www.amazon.co.jp/Amazon-10-000-Amazon%E3%82%B3%E3%82%A4%E3%83%B3/dp/B00KQVXDW0?&amp;_encoding=UTF8&amp;tag=kanegongongon-22&amp;linkCode=ur2&amp;linkId=00aa68aaca62574c742c444789352dbd&amp;camp=247&amp;creative=1211">
+              <img className="amazon-banner" src="/amazon_banner.jpg" />
+            </a>
           </div>
         </div>
       </Column>
