@@ -175,12 +175,25 @@ ul.status__content {
 
 .optionally-scrollable {
   .amazon-banner {
-    border-radius: 5px;
-    width: 80%;
+    border-radius: 4px;
     padding-right: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (min-height: 851px) {
+      background: url('../images/amazon_banner.jpg');
+      width: 80%;
+      height: 245px;
+      background-size: cover;
+    }
+
+    @media screen and (max-height: 850px) {
+      background-image: url('../images/amazon_banner_mini.jpg');
+      width: 282px;
+      height: 80px;
+      background-size: cover;
+    }
   }
 }
 
