@@ -48,7 +48,7 @@ const PageTwo = ({ me }) => (
         <NavigationBar account={me} />
       </div>
       <ComposeForm
-        text='はじめてのトゥート #はじめてのトゥート'
+        text='ハストドンはじめました #はじめてのトゥート'
         suggestions={ImmutableList()}
         mentionedDomains={[]}
         spoiler={false}

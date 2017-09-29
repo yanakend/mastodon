@@ -3,6 +3,7 @@ import ComposeFormContainer from './containers/compose_form_container';
 import NavigationContainer from './containers/navigation_container';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import Announcements from './components/announcements';
 import { connect } from 'react-redux';
 import { mountCompose, unmountCompose } from '../../actions/compose';
 import { insertTagCompose } from '../../actions/compose';
@@ -155,7 +156,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["シャーマン", "80G", "フレンド募集", "ap", "大会", "配信", "イベント", "要望", "川柳"];
+    const tags = ["80G", "フレンド募集", "ap", "大会", "配信", "イベント", "要望"];
 
     return (
       <div className='drawer'>
@@ -167,6 +168,7 @@ export default class Compose extends React.PureComponent {
           <div className='drawer__inner' onFocus={this.onFocus}>
             <NavigationContainer onClose={this.onBlur} />
             <ComposeFormContainer />
+            <Announcements />
             <div className="trend-tags">
               <div className="tags__header">
                 <i className="fa fa-line-chart tags__header__icon" />
