@@ -146,17 +146,6 @@ ul.status__content {
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .getting-started__wrapper {
-    position: relative;
-    overflow-y: initial;
-  }
-  .getting-started {
-    padding-bottom: 0;
-    background: none;
-  }    
-}
-
 .simple_form .input-with-append .input input {
     padding-right: 0;
 }
