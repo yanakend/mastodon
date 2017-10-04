@@ -7,6 +7,27 @@ class Auth::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :set_sessions, only: [:edit, :update]
 
+  def create
+    super do |user|
+      # Send DM about tutorial from admin
+      context = "ハストドンへようこそ！
+暖炉のそばの席でゆっくりしていってくれ！
+#はじめてのトゥート をつけてトゥートしてみたり
+おすすめユーザーをフォローしてみるといいぞっ！"
+      admin = Account.find(1)
+      PostStatusService.new.call(
+        admin,
+        "@#{user.account.username} #{context}",
+        nil,
+        media_ids: [],
+        sensitive: false,
+        spoiler_text: "",
+        visibility: 'direct',
+        application: nil,
+      ) if admin && user.persisted?
+    end
+  end
+
   def destroy
     not_found
   end
