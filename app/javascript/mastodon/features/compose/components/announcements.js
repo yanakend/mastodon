@@ -63,8 +63,8 @@ class Announcements extends React.PureComponent {
           {
             reactRouter: true,
             inline: false,
-            href: '/accounts/2',
-            body: 'yanaken',
+            href: '/accounts/5',
+            body: 'FMいまり',
           },
           {
             reactRouter: true,
@@ -77,6 +77,12 @@ class Announcements extends React.PureComponent {
             inline: false,
             href: '/accounts/428',
             body: 'POKA',
+          },
+          {
+            reactRouter: true,
+            inline: false,
+            href: '/accounts/347',
+            body: 'HearthGamers',
           },
         ],
       }, {
