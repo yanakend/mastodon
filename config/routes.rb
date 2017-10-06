@@ -97,6 +97,7 @@ Rails.application.routes.draw do
 
   resources :media, only: [:show]
   resources :tags,  only: [:show]
+  resources :timeline, only: [:show]
 
   get '/media_proxy/:id/(*any)', to: 'media_proxy#show', as: :media_proxy
 
