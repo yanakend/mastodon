@@ -57,8 +57,8 @@ class Announcements extends React.PureComponent {
           {
             reactRouter: true,
             inline: false,
-            href: '/accounts/1561',
-            body: 'gundamflame',
+            href: '/accounts/170',
+            body: 'makisama',
           },
           {
             reactRouter: true,
