@@ -3,14 +3,6 @@
   %script#initial-state{ type: 'application/json' }!= json_escape(@initial_state_json)
 
   = javascript_pack_tag 'application', integrity: true, crossorigin: 'anonymous'
-  = javascript_include_tag "https://www.googletagmanager.com/gtag/js?id=UA-106593538-1", :async => true
-  :javascript
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments)};
-    gtag('js', new Date());
-    gtag('config', 'UA-106593538-1');
-
-
 
 .app-holder#mastodon{ data: { props: Oj.dump(default_props) } }
   %noscript

@@ -6,6 +6,9 @@ class Api::V1::Timelines::PublicController < Api::BaseController
   respond_to :json
 
   def show
+    # Track a Pageview
+    Analytics.instance.t.pageview(path: '/api/v1/timelines/public')
+
     @statuses = load_statuses
     render json: @statuses, each_serializer: REST::StatusSerializer, relationships: StatusRelationshipsPresenter.new(@statuses, current_user&.account_id)
   end
