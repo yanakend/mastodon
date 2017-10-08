@@ -11,6 +11,8 @@ module Admin
       twitch = TwitchSelector.find(1)
       twitch.channel_name = params[:channel_name]
       twitch.save!
+
+      Rails.cache.write('twitch_selector', twitch, expires_in: 10.minutes)
       redirect_to admin_twitch_path
     end
 

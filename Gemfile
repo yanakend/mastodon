@@ -73,6 +73,7 @@ gem 'webpush'
 gem 'json-ld-preloaded', '~> 2.2.1'
 gem 'rdf-normalize', '~> 0.3.1'
 gem 'staccato'
+gem 'faraday'
 
 group :development, :test do
   gem 'fabrication', '~> 2.16'
