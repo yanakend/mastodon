@@ -34,12 +34,12 @@ class Announcements extends React.PureComponent {
           {
             reactRouter: false,
             inline: true,
-            href: 'https://itunes.apple.com/us/app/%E3%83%9E%E3%82%B9%E3%83%88%E3%83%89%E3%83%B3%E3%82%A2%E3%83%97%E3%83%AA-pawoo/id1229070679?l=ja&ls=1&mt=8',
+            href: 'https://itunes.apple.com/jp/app/tootdon-for-mastodon/id1282283934?mt=8',
             body: 'Appストア',
           }, {
             reactRouter: false,
             inline: true,
-            href: 'https://play.google.com/store/apps/details?id=jp.pxv.pawoo&hl=ja',
+            href: 'https://play.google.com/store/apps/details?id=club.tootdon.app&hl=ja',
             body: 'Google Playストア',
           },
         ],
