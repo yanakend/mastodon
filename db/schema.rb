@@ -89,18 +89,6 @@ ActiveRecord::Schema.define(version: 20170925080308) do
     t.index ["uri"], name: "index_conversations_on_uri", unique: true
   end
 
-  create_table "custom_emojis", force: :cascade do |t|
-    t.string "shortcode", default: "", null: false
-    t.string "domain"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shortcode", "domain"], name: "index_custom_emojis_on_shortcode_and_domain", unique: true
-  end
-
   create_table "domain_blocks", id: :serial, force: :cascade do |t|
     t.string "domain", default: "", null: false
     t.datetime "created_at", null: false
@@ -349,7 +337,7 @@ ActiveRecord::Schema.define(version: 20170925080308) do
 
   create_table "statuses_tags", id: false, force: :cascade do |t|
     t.bigint "status_id", null: false
-    t.integer "tag_id", null: false
+    t.bigint "tag_id", null: false
     t.index ["status_id"], name: "index_statuses_tags_on_status_id"
     t.index ["tag_id", "status_id"], name: "index_statuses_tags_on_tag_id_and_status_id", unique: true
   end
