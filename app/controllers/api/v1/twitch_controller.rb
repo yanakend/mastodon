@@ -8,8 +8,6 @@ class Api::V1::TwitchController < Api::BaseController
     twitch = Rails.cache.read('twitch_selector')
     unless twitch
       twitch = TwitchSelector.find(1)
-      Rails.cache.write('twitch_selector', twitch, expires_in: 10.minutes)
-
       channel_id = channel_id(twitch)
       if live?(channel_id)
         conn = Faraday.new(:url => "https://api.twitch.tv/kraken/streams?game=hearthstone") do |faraday|
@@ -29,6 +27,7 @@ class Api::V1::TwitchController < Api::BaseController
           twitch.save!
         end
       end
+      Rails.cache.write('twitch_selector', twitch, expires_in: 10.minutes)
     end
 
     render json: twitch, serializer: REST::TwitchSelectorSerializer
