@@ -35,7 +35,7 @@ export function fetchTwitchSelector() {
 
     api(getState).get(`/api/v1/twitch`).then(response => {
       dispatch(fetchTwitchSuccessSelector(response.data));
-    }).catch(error => console.log('a'));
+    }).catch(error => console.log(error));
   };
 ;
 };

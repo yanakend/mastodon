@@ -7,10 +7,10 @@ import Announcements from './components/announcements';
 import { connect } from 'react-redux';
 import { mountCompose, unmountCompose } from '../../actions/compose';
 import { insertTagCompose } from '../../actions/compose';
-import Link from 'react-router-dom/Link';
+import { Link } from 'react-router-dom';
 import { injectIntl, defineMessages } from 'react-intl';
 import SearchContainer from './containers/search_container';
-import Motion from 'react-motion/lib/Motion';
+import Motion from '../ui/util/optional_motion';
 import spring from 'react-motion/lib/spring';
 import SearchResultsContainer from './containers/search_results_container';
 import { changeComposing } from '../../actions/compose';
@@ -156,7 +156,7 @@ export default class Compose extends React.PureComponent {
       );
     }
 
-    const tags = ["ハンター", "80G", "フレンド募集", "ap", "配信", "イベント"];
+    const tags = ["80G", "フレンド募集", "ap", "配信", "イベント"];
 
     return (
       <div className='drawer'>
