@@ -21,7 +21,7 @@ class Api::V1::TwitchController < Api::BaseController
         end
 
         body = JSON.parse(res.body)
-        channel_name = body['streams'][0]['channel']['display_name']
+        channel_name = body['streams'][0]['channel']['name']
         if channel_name
           twitch.channel_name = channel_name
           twitch.save!
